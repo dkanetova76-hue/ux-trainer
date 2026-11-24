@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Электронный учебник «UX-менеджмент и цифровой опыт»: лекции, практические занятия, самостоятельная работа, тесты, инструменты расчёта.">
+<title>UX-менеджмент и цифровой опыт</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f6f8;--panel:#fff;--ink:#1b2430;--mut:#5b6675;--line:#dde1e8;--accent:#1f5fbf;--accent-ink:#fff;--soft:#e9f0fb;--good:#1d7a46;--goodbg:#e6f4ec;--bad:#b3261e;--badbg:#fbe9e7;--warn:#8a5a00;--warnbg:#fff4dc;--sh:0 1px 2px rgba(20,30,50,.06)}
+[data-theme=dark]{--bg:#12161c;--panel:#1a2029;--ink:#e6eaf0;--mut:#9aa6b6;--line:#2c3542;--accent:#6aa3ff;--accent-ink:#0b1220;--soft:#202b3d;--good:#59c38a;--goodbg:#173325;--bad:#ff8a80;--badbg:#3a1f1d;--warn:#f0c36a;--warnbg:#3a2f14}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+a{color:var(--accent)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px 48px}
+header.top{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:flex-start;justify-content:space-between;padding:22px 0 12px}
+header.top h1{margin:0;font:600 28px/1.15 "IBM Plex Sans Condensed","IBM Plex Sans",sans-serif;letter-spacing:.2px}
+header.top .sub{color:var(--mut);font-size:14px;margin-top:4px;max-width:640px}
+.acct{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:14px}
+.acct input[type=text]{width:150px}
+input[type=text],input[type=number],textarea,select{font:inherit;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:7px 10px}
+input:focus,textarea:focus,select:focus,button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+button,.btn{font:inherit;cursor:pointer;border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:7px 12px;border-radius:8px}
+button:hover{border-color:var(--accent)}
+button.pri{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:500}
+button.sm{padding:4px 9px;font-size:13px}
+.meter{height:6px;background:var(--line);border-radius:4px;overflow:hidden;width:180px}
+.meter i{display:block;height:100%;background:var(--accent);width:0}
+nav.topnav{position:sticky;top:0;z-index:20;background:var(--bg);display:flex;flex-wrap:wrap;gap:6px;padding:8px 0;border-bottom:1px solid var(--line);margin-bottom:18px}
+nav.topnav button{border-radius:999px;padding:6px 14px}
+nav.topnav button[aria-selected=true]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+section[role=tabpanel][hidden]{display:none}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 20px;box-shadow:var(--sh)}
+.cover{padding:30px 28px;border-radius:14px;background:linear-gradient(135deg,var(--soft),var(--panel));border:1px solid var(--line);margin-bottom:18px}
+.cover .k{font:500 12px "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+.cover h2{font:600 34px/1.15 Georgia,"Times New Roman",serif;margin:8px 0 10px}
+.cover p{margin:4px 0;color:var(--mut)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-bottom:18px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;cursor:pointer;text-align:left;display:block;width:100%}
+.card:hover{border-color:var(--accent)}
+.card b{display:block;font:600 30px/1 "IBM Plex Sans Condensed",sans-serif;color:var(--accent);margin-bottom:6px}
+.card span{color:var(--mut);font-size:14px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:860px){.two,.cols3{grid-template-columns:1fr}}
+.bk-grid{display:grid;grid-template-columns:300px 1fr;gap:18px;align-items:start}
+@media(max-width:860px){.bk-grid{grid-template-columns:1fr}}
+.side{position:sticky;top:60px;max-height:calc(100vh - 80px);overflow:auto;padding:12px}
+@media(max-width:860px){.side{position:static;max-height:none}}
+.side input[type=search]{width:100%;font:inherit;padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--ink);margin-bottom:8px}
+.lst{list-style:none;margin:0;padding:0}
+.lst li button{display:block;width:100%;text-align:left;border:0;border-radius:8px;padding:8px 10px;background:none;line-height:1.35}
+.lst li button:hover{background:var(--soft)}
+.lst li button[aria-current=true]{background:var(--accent);color:var(--accent-ink)}
+.lst .n{font:500 12px "IBM Plex Mono",monospace;opacity:.75;margin-right:6px}
+.lst .ck{float:right;font-size:13px;color:var(--good)}
+.lst li button[aria-current=true] .ck{color:var(--accent-ink)}
+.grp{font:500 12px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);margin:12px 6px 4px}
+article.bk{padding:26px 30px}
+.bk h1{font:600 28px/1.2 Georgia,"Times New Roman",serif;margin:0 0 6px}
+.bk .meta{color:var(--mut);font-size:14px;margin-bottom:16px}
+.bk .meta p{margin:2px 0}
+.bk h2{font:600 22px/1.25 "IBM Plex Sans Condensed","IBM Plex Sans",sans-serif;margin:28px 0 8px;padding-top:10px;border-top:1px solid var(--line)}
+.bk h3{font:600 17px/1.3 "IBM Plex Sans",sans-serif;margin:20px 0 6px}
+.bk p{margin:8px 0}
+.bk .blank{line-height:2.1}
+.bk ul,.bk ol{padding-left:24px}
+.bk li{margin:3px 0}
+.tw{overflow-x:auto;margin:12px 0}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:var(--soft);font-weight:600}
+details.key{border:1px solid var(--line);border-radius:10px;margin:14px 0;background:var(--panel)}
+details.key summary{cursor:pointer;padding:10px 14px;font-weight:600;color:var(--accent)}
+details.key>div{padding:0 14px 8px}
+input.fill{border:0;border-bottom:1.5px solid var(--accent);border-radius:0;padding:2px 4px;min-width:150px;width:min(100%,260px);background:var(--soft);vertical-align:baseline}
+textarea.fill{width:100%;min-width:130px;resize:vertical;background:var(--soft)}
+.notes{margin-top:24px;padding:14px;border:1px dashed var(--line);border-radius:10px;background:var(--soft)}
+.notes textarea{width:100%;min-height:110px;margin-top:6px}
+.pager{display:flex;justify-content:space-between;gap:10px;margin-top:22px;flex-wrap:wrap}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 0}
+.tag{font:500 12px "IBM Plex Mono",monospace;padding:2px 8px;border-radius:999px;background:var(--soft);color:var(--accent)}
+.tq{border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:12px 0;background:var(--panel)}
+.tq .h{font:500 12px "IBM Plex Mono",monospace;color:var(--mut);margin-bottom:4px}
+.tq label{display:block;padding:5px 8px;border-radius:7px;cursor:pointer}
+.tq label:hover{background:var(--soft)}
+.tq label.ok{background:var(--goodbg);outline:1px solid var(--good)}
+.tq label.no{background:var(--badbg);outline:1px solid var(--bad)}
+.res{padding:14px 16px;border-radius:10px;background:var(--soft);margin:12px 0}
+.bar{display:grid;grid-template-columns:40px 1fr 60px;gap:8px;align-items:center;font-size:14px;margin:4px 0}
+.bar i{display:block;height:10px;border-radius:5px;background:var(--accent)}
+.bar div{background:var(--line);border-radius:5px;height:10px;overflow:hidden}
+.note{padding:10px 14px;border-radius:10px;background:var(--warnbg);color:var(--warn);font-size:14px;margin:12px 0}
+.tool{margin-bottom:18px}
+.tool h3{margin:0 0 4px;font:600 19px "IBM Plex Sans Condensed",sans-serif}
+.tool .d{color:var(--mut);font-size:14px;margin:0 0 10px}
+.tool input[type=text]{width:90px}
+.tool td input[type=text]{width:100%;min-width:60px}
+.tool .out{margin-top:10px;padding:10px 14px;background:var(--soft);border-radius:10px;font-size:15px}
+.tool .out b{font-family:"IBM Plex Mono",monospace}
+.rep h2{font:600 20px "IBM Plex Sans Condensed",sans-serif;margin:22px 0 6px;border-top:1px solid var(--line);padding-top:10px}
+.rep .val{background:var(--soft);padding:1px 5px;border-radius:4px;border-bottom:1.5px solid var(--accent)}
+footer{color:var(--mut);font-size:13px;text-align:center;padding:24px 0}
+@media print{
+  body{background:#fff;color:#000}
+  header.top,nav.topnav,.noprint,footer{display:none!important}
+  .panel,.rep{border:0;box-shadow:none;padding:0}
+  section[role=tabpanel]:not(#tab-report){display:none!important}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div>
+    <h1>UX-менеджмент и цифровой опыт</h1>
+    <div class="sub">Электронный учебник · магистратура 580200 «Менеджмент» · IT-менеджмент и цифровая трансформация · группа ИТМм-1-26 · весенний семестр 2026/27</div>
+  </div>
+  <div class="acct noprint" id="acct">
+    <input type="text" id="u-name" placeholder="Фамилия, имя" aria-label="Фамилия и имя">
+    <input type="text" id="u-group" placeholder="Группа" aria-label="Группа" style="width:100px">
+    <button id="btn-theme" title="Светлая / тёмная тема" aria-label="Сменить тему">Тема</button>
+    <div style="width:100%;display:flex;gap:8px;align-items:center;justify-content:flex-end;flex-wrap:wrap">
+      <span style="font-size:13px;color:var(--mut)" id="prog-txt"></span>
+      <div class="meter" aria-hidden="true"><i id="prog-bar"></i></div>
+    </div>
+  </div>
+</header>
+
+<nav class="topnav" role="tablist" aria-label="Разделы учебника" id="topnav">
+  <button role="tab" data-tab="home">О дисциплине</button>
+  <button role="tab" data-tab="lec">Конспект лекций</button>
+  <button role="tab" data-tab="pr">Практические работы</button>
+  <button role="tab" data-tab="srm">Самостоятельная работа</button>
+  <button role="tab" data-tab="tests">Тесты</button>
+  <button role="tab" data-tab="control">Контроль и экзамен</button>
+  <button role="tab" data-tab="tools">Инструменты расчёта</button>
+  <button role="tab" data-tab="report">Портфолио</button>
+</nav>
+
+<section role="tabpanel" id="tab-home"></section>
+
+<section role="tabpanel" id="tab-lec" hidden>
+  <div class="bk-grid">
+    <aside class="panel side"><input type="search" id="lec-q" placeholder="Поиск по лекциям…" aria-label="Поиск по лекциям"><ul class="lst" id="lec-list"></ul></aside>
+    <article class="panel bk" id="lec-art"></article>
+  </div>
+</section>
+
+<section role="tabpanel" id="tab-pr" hidden>
+  <div class="bk-grid">
+    <aside class="panel side"><input type="search" id="pr-q" placeholder="Поиск по практикам…" aria-label="Поиск по практикам"><ul class="lst" id="pr-list"></ul></aside>
+    <article class="panel bk" id="pr-art"></article>
+  </div>
+</section>
+
+<section role="tabpanel" id="tab-srm" hidden><article class="panel bk" id="srm-art"></article></section>
+
+<section role="tabpanel" id="tab-tests" hidden>
+  <div class="bk-grid">
+    <aside class="panel side" id="ts-side"></aside>
+    <div id="ts-main"></div>
+  </div>
+</section>
+
+<section role="tabpanel" id="tab-control" hidden><article class="panel bk" id="control-art"></article></section>
+<section role="tabpanel" id="tab-tools" hidden></section>
+<section role="tabpanel" id="tab-report" hidden></section>
+
+<footer>«UX-менеджмент и цифровой опыт» · автор курса Канетова Д. Э. · Международный университет имени К.Ш. Токтомаматова · без входа записи и результаты хранятся в вашем браузере</footer>
+</div>
+
+<script src="local.js"></script>
+<script src="content.js"></script>
+<script src="tests.js"></script>
+<script src="cloud-config.js" onerror="void 0"></script>
+<script src="cloud.js"></script>
+<script>
+(function(){
+'use strict';
+var C = window.UXC, T = window.UXT, P = window.UXP;
+var $ = function(s, r){return (r||document).querySelector(s)};
+var $$ = function(s, r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function pad(n){return (n<10?'0':'')+n}
+function fmt(x,d){if(x===null||!isFinite(x))return '—';return x.toLocaleString('ru-RU',{maximumFractionDigits:d==null?1:d})}
+function num(v){var x=parseFloat(String(v).replace(',','.'));return isNaN(x)?null:x}
+function emit(n,p){try{return window.UXCloud ? window.UXCloud.on(n,p) : undefined}catch(e){}}
+function testRef(code){if(code==='diag')return 'DX';var m={'Л':'L','П':'P','С':'S'};return (m[code[0]]||code[0])+parseInt(code.slice(1),10)}
+
+/* ---------- тема ---------- */
+var theme = P.get('theme', null);
+function applyTheme(){
+  var t = theme || (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', t);
+}
+applyTheme();
+$('#btn-theme').onclick = function(){
+  var cur = document.documentElement.getAttribute('data-theme');
+  theme = cur === 'dark' ? 'light' : 'dark'; P.set('theme', theme); applyTheme();
+};
+
+/* ---------- студент ---------- */
+var un = $('#u-name'), ug = $('#u-group');
+un.value = P.get('name',''); ug.value = P.get('group','');
+un.oninput = function(){P.set('name',un.value)};
+ug.oninput = function(){P.set('group',ug.value)};
+
+/* ---------- вкладки ---------- */
+var TABS = ['home','lec','pr','srm','tests','control','tools','report'];
+var built = {};
+function showTab(t, sub){
+  if (TABS.indexOf(t) < 0) t = 'home';
+  TABS.forEach(function(x){
+    $('#tab-'+x).hidden = x !== t;
+  });
+  $$('#topnav button').forEach(function(b){b.setAttribute('aria-selected', b.dataset.tab === t ? 'true':'false')});
+  emit('tab', t);
+  if (!built[t]) { built[t] = true; BUILD[t](); }
+  if (t === 'lec') openLec(sub || P.get('lec-cur',1), true);
+  if (t === 'pr') openPr(sub || P.get('pr-cur',1), true);
+  if (t === 'report') BUILD.report();
+  if (t === 'home') refreshHome();
+  var h = '#' + t + (sub ? '-' + sub : '');
+  if (location.hash !== h) history.replaceState(null,'',h);
+  window.scrollTo(0,0);
+}
+$('#topnav').onclick = function(e){var b = e.target.closest('button'); if (b) showTab(b.dataset.tab)};
+
+/* ---------- прогресс ---------- */
+function progress(){
+  var lr = 0, pd = 0, i;
+  for (i=1;i<=10;i++) if (P.get('lec-read:'+i)) lr++;
+  for (i=1;i<=14;i++) if (P.get('pr-done:'+i)) pd++;
+  var ans = P.get('qres', {}), tp = 0, seen = {};
+  Object.keys(ans).forEach(function(k){ if (ans[k] === 1) tp++ });
+  var ts = Object.keys(ans).length;
+  return {lr:lr, pd:pd, q:ts, qok:tp, total: Math.round(100*(lr+pd+Math.min(ts,240)/240*10)/(10+14+10))};
+}
+function refreshProg(){
+  var p = progress();
+  $('#prog-txt').textContent = 'Лекций прочитано: '+p.lr+'/10 · практик сдано: '+p.pd+'/14 · тестов решено: '+p.q+'/240';
+  $('#prog-bar').style.width = Math.min(100,p.total)+'%';
+}
+
+var BUILD = {};
+
+/* ---------- главная ---------- */
+BUILD.home = function(){
+  var el = $('#tab-home');
+  var rows = C.weeks.map(function(w){
+    var ln = w[1] === '—' ? null : parseInt(w[1].slice(1),10);
+    var pn = parseInt(w[2].slice(1),10);
+    var L = ln ? C.lectures[ln-1] : null, Pr = C.practicals[pn-1];
+    return '<tr><td>'+w[0]+'</td><td>'+(L ? '<a href="#lec-'+ln+'" data-go="lec:'+ln+'">Л'+ln+'. '+esc(L.title)+'</a>' : '—')+'</td><td><a href="#pr-'+pn+'" data-go="pr:'+pn+'">П'+pn+'. '+esc(Pr.title)+'</a></td><td>'+w[3]+'</td></tr>';
+  }).join('');
+  el.innerHTML =
+  '<div class="cover"><div class="k">Электронный учебник · УМК</div><h2>UX-менеджмент и цифровой опыт</h2>'+
+  '<p>Как управлять качеством цифровой услуги: формулировать UX-проблему, исследовать пользователей, проверять решения на прототипе, считать метрики и обосновывать приоритеты внедрения.</p>'+
+  '<p>Сквозной проект — улучшение цифровой услуги вуза Кыргызстана (личный кабинет, расписание, запись на консультацию).</p>'+
+  '<p style="margin-top:10px">4 кредита · 120 часов: 20 — лекции, 28 — практика, 72 — самостоятельная работа · итоговый контроль — экзамен</p></div>'+
+  '<div class="cards">'+
+  '<button class="card" data-go="lec"><b>10</b><span>лекций с учебными кейсами и контрольными вопросами</span></button>'+
+  '<button class="card" data-go="pr"><b>14</b><span>практических занятий с бланками, которые заполняются прямо на странице</span></button>'+
+  '<button class="card" data-go="tests"><b>240</b><span>тестовых заданий по уровням Блума и 8 открытых заданий</span></button>'+
+  '<button class="card" data-go="tools"><b>5</b><span>инструментов расчёта: доли, сегменты, RICE, разность разностей, баллы курса</span></button>'+
+  '</div>'+
+  '<div class="two">'+
+  '<div class="panel"><h3 style="margin-top:0">Результаты обучения</h3><table><tr><th>Код</th><th>К концу курса вы сможете</th></tr>'+
+  '<tr><td>РО-1</td><td>Сформулировать управленческую UX-проблему и критерии успешного решения.</td></tr>'+
+  '<tr><td>РО-2</td><td>Спроектировать исследование, проанализировать данные и построить карту пользовательского пути.</td></tr>'+
+  '<tr><td>РО-3</td><td>Разработать и проверить прототип, интерпретировать результаты с учётом доступности.</td></tr>'+
+  '<tr><td>РО-4</td><td>Обосновать приоритеты, план внедрения и измерение эффекта.</td></tr></table></div>'+
+  '<div class="panel"><h3 style="margin-top:0">Как оценивается курс</h3><table><tr><th>Компонент</th><th>Баллы</th></tr>'+
+  '<tr><td>Практические задания (П1–П14)</td><td>25</td></tr><tr><td>Самостоятельная работа</td><td>15</td></tr>'+
+  '<tr><td>Рубежный контроль № 1</td><td>10</td></tr><tr><td>Рубежный контроль № 2</td><td>10</td></tr>'+
+  '<tr><td>Экзамен</td><td>40</td></tr><tr><th>Итого</th><th>100</th></tr></table>'+
+  '<p style="font-size:13px;color:var(--mut)">Шкалу отметок и порядок пересдачи определяет локальное положение вуза. Диагностические тесты в этом учебнике — для самопроверки и не входят в 100 баллов.</p></div></div>'+
+  '<div class="panel" style="margin-top:16px"><h3 style="margin-top:0">Карта курса по неделям</h3><div class="tw"><table><tr><th>Неделя</th><th>Лекция</th><th>Практика</th><th>СРМ, ч</th></tr>'+rows+'</table></div></div>'+
+  '<div class="panel" style="margin-top:16px"><h3 style="margin-top:0">Как работать с учебником</h3><ul>'+
+  '<li>Прочитайте лекцию и ответьте на контрольные вопросы; кейс решайте самостоятельно, затем открывайте разбор.</li>'+
+  '<li>На практических заполняйте бланки прямо на странице — записи сохраняются в браузере и попадают в «Портфолио».</li>'+
+  '<li>Проверяйте себя тестами по каждой теме; профиль по уровням Блума покажет, где слабое место.</li>'+
+  '<li>Пользуйтесь «Инструментами расчёта» для долей, сегментов, RICE и разности разностей.</li>'+
+  '<li>Записи привязаны к браузеру и устройству. Чтобы перенести их, скачайте файл на вкладке «Портфолио».</li></ul></div>'+
+  '<div class="panel" style="margin-top:16px"><details class="key" style="margin:0;border:0"><summary>Силлабус дисциплины</summary><div class="bk">'+C.syllabus+'</div></details>'+
+  '<details class="key" style="margin:8px 0 0;border:0"><summary>Рабочая программа (проект)</summary><div class="bk">'+C.program+'</div></details></div>';
+  el.onclick = goHandler;
+};
+function refreshHome(){}
+function goHandler(e){
+  var a = e.target.closest('[data-go]'); if (!a) return;
+  e.preventDefault();
+  var p = a.dataset.go.split(':'); showTab(p[0], p[1] ? parseInt(p[1],10) : undefined);
+}
+
+/* ---------- сохранение полей ---------- */
+function bindFill(root, scope){
+  $$('.fill', root).forEach(function(f){
+    var k = 'fill:'+f.dataset.k;
+    var v = P.get(k, '');
+    if (v) f.value = v;
+    f.oninput = function(){ P.set(k, f.value); };
+  });
+}
+function listBuilder(prefix, items, label, doneKey, qEl, listEl, opener, searchable){
+  function render(filter){
+    var h = '', lastMod = null, q = (filter||'').toLowerCase();
+    items.forEach(function(it){
+      if (q && searchable(it).indexOf(q) < 0) return;
+      if (prefix === 'pr' && it.module !== lastMod) { lastMod = it.module; h += '<li class="grp">Модуль '+esc(it.module)+'</li>'; }
+      if (prefix === 'lec' && it.module !== lastMod) { lastMod = it.module; h += '<li class="grp">Модуль '+esc(it.module)+'</li>'; }
+      var done = P.get(doneKey+it.n);
+      h += '<li><button data-n="'+it.n+'"><span class="n">'+(prefix==='lec'?'Л':'П')+pad(it.n)+'</span>'+esc(it.title)+(done?'<span class="ck">✓</span>':'')+'</button></li>';
+    });
+    listEl.innerHTML = h || '<li style="padding:8px;color:var(--mut)">Ничего не найдено</li>';
+    var cur = listEl.querySelector('[data-n="'+P.get(prefix+'-cur',1)+'"]');
+    if (cur) cur.setAttribute('aria-current','true');
+  }
+  render('');
+  qEl.oninput = function(){render(qEl.value)};
+  listEl.onclick = function(e){var b = e.target.closest('button[data-n]'); if (b) showTab(prefix, parseInt(b.dataset.n,10))};
+  return render;
+}
+var lecRender, prRender;
+BUILD.lec = function(){
+  var txt = {};
+  lecRender = listBuilder('lec', C.lectures, 'Л', 'lec-read:', $('#lec-q'), $('#lec-list'), null, function(it){
+    if (!txt[it.n]) txt[it.n] = (it.title+' '+it.html.replace(/<[^>]+>/g,' ')).toLowerCase();
+    return txt[it.n];
+  });
+};
+BUILD.pr = function(){
+  var txt = {};
+  prRender = listBuilder('pr', C.practicals, 'П', 'pr-done:', $('#pr-q'), $('#pr-list'), null, function(it){
+    if (!txt[it.n]) txt[it.n] = (it.title+' '+it.html.replace(/<[^>]+>/g,' ')).toLowerCase();
+    return txt[it.n];
+  });
+};
+function pagerHtml(prefix, n, max){
+  return '<div class="pager noprint">'+(n>1?'<button data-go="'+prefix+':'+(n-1)+'">← Предыдущая</button>':'<span></span>')+(n<max?'<button class="pri" data-go="'+prefix+':'+(n+1)+'">Следующая →</button>':'<span></span>')+'</div>';
+}
+function openLec(n, silent){
+  n = parseInt(n,10); if (!(n>=1 && n<=10)) n = 1;
+  P.set('lec-cur', n);
+  var L = C.lectures[n-1], el = $('#lec-art');
+  var read = P.get('lec-read:'+n);
+  el.innerHTML = '<h1>Лекция № '+n+'. '+esc(L.title)+'</h1><div class="meta">'+L.meta.map(function(m){return '<p>'+esc(m)+'</p>'}).join('')+'</div>'+L.html+
+    '<div class="notes noprint"><label><input type="checkbox" id="lec-ck" '+(read?'checked':'')+'> Лекция прочитана</label></div>'+pagerHtml('lec', n, 10);
+  emit('lecture', n);
+  $('#lec-ck').onchange = function(){P.set('lec-read:'+n, this.checked); if (this.checked) emit('lecture_done', n); lecRender($('#lec-q').value); refreshProg()};
+  el.onclick = goHandler;
+  $$('#lec-list button').forEach(function(b){b.removeAttribute('aria-current')});
+  var cur = $('#lec-list [data-n="'+n+'"]'); if (cur) cur.setAttribute('aria-current','true');
+}
+function collectPr(n){
+  var X = C.practicals[n-1], box = document.createElement('div'); box.innerHTML = X.html;
+  var lines = [], total = 0, filled = 0, seen = new Set();
+  $$('.fill', box).forEach(function(f){ total++; if (P.get('fill:'+f.dataset.k,'')) filled++; });
+  $$('.fill', box).forEach(function(f){
+    var v = P.get('fill:'+f.dataset.k,''); if (!v) return;
+    var holder = f.closest('tr') || f.closest('p'); if (!holder || seen.has(holder)) return; seen.add(holder);
+    if (holder.tagName === 'TR'){
+      var heads = $$('th', holder.closest('table').querySelector('tr')).map(function(h){return h.textContent.trim()});
+      var cells = $$('td', holder).map(function(td, i){
+        var fl = td.querySelector('.fill'); var val = fl ? P.get('fill:'+fl.dataset.k,'') : td.textContent.trim();
+        return (heads[i] ? heads[i]+': ' : '') + (val || '—');
+      });
+      lines.push({t: cells.join(' · '), b: false});
+    } else {
+      var pc = holder.cloneNode(true), cls = $$('.fill', pc);
+      $$('.fill', holder).forEach(function(ff, ix){ var sp = document.createElement('span'); sp.textContent = '[' + (P.get('fill:'+ff.dataset.k,'') || '—') + ']'; cls[ix].parentNode.replaceChild(sp, cls[ix]); });
+      lines.push({t: pc.textContent.replace(/\s+/g,' ').trim(), b: false});
+    }
+  });
+  var note = P.get('pr-note:'+n,'');
+  if (note) { lines.push({t:'Заметки к занятию', b:true}); lines.push({t: note, b:false}); }
+  return {n:n, title:X.title, lines:lines, total:total, filled:filled, note:note};
+}
+function openPr(n){
+  n = parseInt(n,10); if (!(n>=1 && n<=14)) n = 1;
+  P.set('pr-cur', n);
+  var X = C.practicals[n-1], el = $('#pr-art');
+  el.innerHTML = '<h1>Практическое занятие № '+n+'. '+esc(X.title)+'</h1><div class="tags"><span class="tag">Модуль '+esc(X.module)+'</span><span class="tag">90 минут</span><span class="tag">максимум — 8 баллов</span></div>'+X.html+
+    '<div class="notes noprint"><b>Мои заметки к занятию</b><textarea id="pr-note" placeholder="Что получилось, какие замечания получены, что доработать"></textarea>'+
+    '<p style="margin:8px 0 0"><label><input type="checkbox" id="pr-ck"> Работа выполнена</label></p>'+
+    (window.UXCloud && window.UXCloud.enabled ? '<p style="margin:10px 0 0"><button class="pri" id="pr-send">Сдать преподавателю</button> <span id="pr-send-st" style="font-size:14px"></span></p>'+(P.get('pr-sent:'+n)?'<p style="font-size:13px;color:var(--mut);margin:4px 0 0">Последняя отправка: '+new Date(P.get('pr-sent:'+n)).toLocaleString('ru-RU')+'</p>':'') : '')+'</div>'+pagerHtml('pr', n, 14);
+  $('#pr-note').value = P.get('pr-note:'+n,'');
+  $('#pr-note').oninput = function(){P.set('pr-note:'+n, this.value)};
+  $('#pr-ck').checked = !!P.get('pr-done:'+n);
+  $('#pr-ck').onchange = function(){P.set('pr-done:'+n, this.checked); prRender($('#pr-q').value); refreshProg()};
+  bindFill(el);
+  emit('practice', n);
+  var sb = $('#pr-send'); if (sb) sb.onclick = function(){ window.UXCloud.sendReport(collectPr(n), $('#pr-send-st')); };
+  el.onclick = goHandler;
+  $$('#pr-list button').forEach(function(b){b.removeAttribute('aria-current')});
+  var cur = $('#pr-list [data-n="'+n+'"]'); if (cur) cur.setAttribute('aria-current','true');
+}
+
+/* ---------- СРМ и контроль ---------- */
+BUILD.srm = function(){
+  var el = $('#srm-art');
+  el.innerHTML = '<h1>Самостоятельная работа магистрантов</h1>'+C.srm;
+  $$('h1', el).slice(1).forEach(function(h){});
+  bindFill(el); el.onclick = goHandler;
+};
+BUILD.control = function(){
+  var el = $('#control-art');
+  el.innerHTML = '<h1>Контроль и экзамен</h1><p class="meta">Текущий контроль, рубежные контроли № 1 и 2, экзаменационные билеты и критерии оценивания. Ключи и разборы для преподавателя в эту версию не включены.</p>'+C.control;
+};
+
+/* ---------- тесты ---------- */
+var Q = T.q, QBY = {};
+Q.forEach(function(q){QBY[q.id] = q});
+var TOPIC_GROUPS = [['Л','Лекции',10],['П','Практические занятия',14],['С','Самостоятельная работа',10]];
+var run = null;
+function shuffle(a){a = a.slice(); for (var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)); var t=a[i];a[i]=a[j];a[j]=t} return a}
+BUILD.tests = function(){
+  var h = '<div class="grp" style="margin-top:0">Вариант для самопроверки</div><ul class="lst"><li><button data-ts="diag">Диагностический вариант: 20 вопросов + 2 открытых</button></li></ul>';
+  TOPIC_GROUPS.forEach(function(g){
+    h += '<div class="grp">'+g[1]+'</div><ul class="lst">';
+    for (var i=1;i<=g[2];i++){
+      var code = g[0]+pad(i), nm = T.topics[code] || '';
+      h += '<li><button data-ts="'+code+'"><span class="n">'+code+'</span>'+esc(nm)+'</button></li>';
+    }
+    h += '</ul>';
+  });
+  h += '<div class="grp">Открытые задания</div><ul class="lst"><li><button data-ts="open">Б5 «Оценивать» и Б6 «Создавать» (8 заданий)</button></li></ul>';
+  h += '<div class="grp">Профиль</div><ul class="lst"><li><button data-ts="prof">Мой профиль по уровням Блума</button></li></ul>';
+  $('#ts-side').innerHTML = h;
+  $('#ts-side').onclick = function(e){var b = e.target.closest('[data-ts]'); if (b) startTest(b.dataset.ts)};
+  startTest('intro');
+};
+function sampleBy(prefix, n){return shuffle(Q.filter(function(q){return q.t[0] === prefix})).slice(0,n)}
+function startTest(code){
+  var main = $('#ts-main');
+  if (code === 'intro'){
+    main.innerHTML = '<div class="panel bk"><h1>Тесты</h1><p>Банк содержит 240 закрытых заданий с одним верным ответом (по 7–8 на тему) и 8 открытых заданий уровней Б5 и Б6. Выберите тему слева или начните с диагностического варианта.</p>'+
+    '<p>Результаты — для самопроверки и обратной связи, к 100 баллам курса не добавляются. Порядок вариантов ответа при каждом запуске перемешивается.</p>'+
+    '<table><tr><th>Уровень</th><th>Действие</th><th>Заданий</th></tr><tr><td>Б1</td><td>Вспоминать</td><td>11</td></tr><tr><td>Б2</td><td>Понимать</td><td>48</td></tr><tr><td>Б3</td><td>Применять</td><td>108</td></tr><tr><td>Б4</td><td>Анализировать</td><td>73</td></tr><tr><td>Б5</td><td>Оценивать</td><td>4 открытых</td></tr><tr><td>Б6</td><td>Создавать</td><td>4 открытых</td></tr></table></div>';
+    return;
+  }
+  if (code === 'prof'){ return renderProfile(); }
+  if (code === 'open'){ return renderOpen(T.open, 'Открытые задания Б5 и Б6'); }
+  var list, title, opens = null;
+  if (code === 'diag'){
+    list = sampleBy('Л',6).concat(sampleBy('П',8), sampleBy('С',6));
+    var o5 = shuffle(T.open.filter(function(o){return o.lvl==='Б5'}))[0], o6 = shuffle(T.open.filter(function(o){return o.lvl==='Б6'}))[0];
+    opens = [o5,o6]; title = 'Диагностический вариант';
+  } else {
+    list = Q.filter(function(q){return q.t === code}); title = code + ' · ' + (T.topics[code]||'');
+  }
+  emit('test_start', testRef(code));
+  run = {code:code, title:title, items:list.map(function(q){
+    var ord = shuffle([0,1,2,3]);
+    return {q:q, ord:ord};
+  }), done:false, opens:opens};
+  renderRun();
+}
+function renderRun(){
+  var main = $('#ts-main'), h = '<div class="panel bk"><h1>'+esc(run.title)+'</h1><p class="meta">Вопросов: '+run.items.length+'. Один верный ответ в каждом.</p>';
+  run.items.forEach(function(it, i){
+    h += '<div class="tq" data-i="'+i+'"><div class="h">'+it.q.id+' · '+it.q.b+'</div><div>'+(i+1)+'. '+esc(it.q.q)+'</div>';
+    it.ord.forEach(function(oi, pos){
+      h += '<label><input type="radio" name="q'+i+'" value="'+oi+'"> '+'АБВГ'[pos]+'. '+esc(it.q.o[oi])+'</label>';
+    });
+    h += '</div>';
+  });
+  h += '<p class="noprint"><button class="pri" id="ts-check">Проверить</button> <button id="ts-again">Перемешать заново</button></p><div id="ts-res"></div></div>';
+  main.innerHTML = h;
+  $('#ts-check').onclick = checkRun;
+  $('#ts-again').onclick = function(){startTest(run.code)};
+  if (run.opens){ var d = document.createElement('div'); d.id = 'ts-open'; main.appendChild(d); renderOpen(run.opens, 'Открытые задания к варианту', d); }
+}
+function checkRun(){
+  var ok = 0, byB = {}, res = P.get('qres', {});
+  var unanswered = 0;
+  run.items.forEach(function(it, i){
+    var box = $('.tq[data-i="'+i+'"]'), sel = box.querySelector('input:checked');
+    $$('label', box).forEach(function(l){l.classList.remove('ok','no')});
+    var b = it.q.b; byB[b] = byB[b] || [0,0]; byB[b][1]++;
+    var labels = $$('label', box);
+    var correctPos = it.ord.indexOf(it.q.a);
+    labels[correctPos].classList.add('ok');
+    if (!sel){ unanswered++; res[it.q.id] = 0; return; }
+    var val = parseInt(sel.value,10);
+    if (val === it.q.a){ ok++; byB[b][0]++; res[it.q.id] = 1; }
+    else { sel.parentNode.classList.add('no'); res[it.q.id] = 0; }
+  });
+  P.set('qres', res);
+  var hist = P.get('thist', []);
+  hist.push({d:new Date().toISOString().slice(0,16).replace('T',' '), s:run.title, ok:ok, n:run.items.length});
+  P.set('thist', hist.slice(-40));
+  var pc = Math.round(100*ok/run.items.length);
+  var band = pc>=85?'уверенное владение темой':pc>=65?'хороший уровень, разберите ошибки':pc>=45?'основы есть, вернитесь к лекции и практике':'нужно повторить материал';
+  var bars = Object.keys(byB).sort().map(function(b){var r = byB[b]; return '<div class="bar"><span>'+b+'</span><div><i style="width:'+Math.round(100*r[0]/r[1])+'%"></i></div><span>'+r[0]+'/'+r[1]+'</span></div>'}).join('');
+  $('#ts-res').innerHTML = '<div class="res"><b>Результат: '+ok+' из '+run.items.length+' ('+pc+'%)</b> — '+band+'.'+(unanswered?' Без ответа: '+unanswered+'.':'')+'<div style="margin-top:8px">По уровням Блума:</div>'+bars+'<p style="margin:8px 0 0;font-size:13px;color:var(--mut)">Верные ответы подсвечены зелёным. Балл диагностический, в 100 баллов курса не входит.</p></div>';
+  refreshProg();
+  var cloudNote = '';
+  if (window.UXCloud && window.UXCloud.enabled){
+    var u = window.UXCloud.user();
+    if (!u) cloudNote = '<p class="cl-warn">Вы не вошли: результат остался только на этом устройстве. <button class="sm" id="ts-login">Войти</button></p>';
+    else if (!run._sent){
+      run._sent = true;
+      var opens = (run.opens||[]).map(function(o){return {q:o.q, crit:o.key, a:P.get('oa:'+o.id,'')}}).filter(function(o){return o.a});
+      var items = run.items.map(function(it){var sel=null; return {k:it.q.id, lv:it.q.b, t:'choice', s:(res[it.q.id]||0), q:it.q.q.slice(0,160)}});
+      var lv = {}; Object.keys(byB).forEach(function(b){lv[b] = byB[b]});
+      emit('test_submit', {ref:testRef(run.code), title:run.title, pct:pc, ok:ok, n:run.items.length, lv:lv, items:items, open:opens, seed:Date.now().toString(36)});
+      cloudNote = '<p class="cl-ok">✓ Результат отправлен преподавателю ('+esc(u.fio)+', '+esc(u.grp)+').</p>';
+    }
+  }
+  $('#ts-res').insertAdjacentHTML('beforeend', cloudNote);
+  var tl = $('#ts-login'); if (tl) tl.onclick = function(){ window.UXCloud.openAuth('login', 'Войдите, чтобы результат теста получил преподаватель.'); };
+  $('#ts-res').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function renderOpen(list, title, host){
+  var h = '<div class="panel bk"><h1>'+esc(title)+'</h1><p class="meta">Развёрнутый ответ пишется самостоятельно. Каждое задание оценивается по двум признакам: по 2 балла за полный результат, 1 — за частичный, 0 — за отсутствие или ошибку (максимум 4). После ответа сверьтесь с ориентирами.</p>';
+  list.forEach(function(o){
+    h += '<div class="tq"><div class="h">'+o.id+' · '+o.lvl+' · темы: '+esc(o.topics)+'</div><div>'+esc(o.q)+'</div>'+
+      '<textarea class="oa" data-k="oa:'+o.id+'" rows="5" style="width:100%;margin-top:8px" placeholder="Ваш ответ"></textarea>'+
+      '<p style="margin:6px 0 0"><button class="sm" data-key="'+o.id+'">Показать ориентиры оценивания</button></p><div class="okey" id="okey-'+o.id+'" hidden><div class="res" style="margin:8px 0 0"><b>Два признака полного ответа:</b> '+esc(o.key)+'</div></div></div>';
+  });
+  h += '</div>';
+  var main = host || $('#ts-main');
+  if (host) host.innerHTML = h; else main.innerHTML = h;
+  $$('.oa', main).forEach(function(t){var k = t.dataset.k; t.value = P.get(k,''); t.oninput = function(){P.set(k, t.value)}});
+  main.onclick = function(e){var b = e.target.closest('button[data-key]'); if (b) { var x = document.getElementById('okey-'+b.dataset.key); x.hidden = !x.hidden; } };
+}
+function renderProfile(){
+  var res = P.get('qres', {}), by = {}, topic = {};
+  Object.keys(res).forEach(function(id){
+    var q = QBY[id]; if (!q) return;
+    by[q.b] = by[q.b] || [0,0]; by[q.b][1]++; by[q.b][0] += res[id];
+    topic[q.t] = topic[q.t] || [0,0]; topic[q.t][1]++; topic[q.t][0] += res[id];
+  });
+  var bars = ['Б1','Б2','Б3','Б4'].map(function(b){var r = by[b]||[0,0]; var p = r[1]?Math.round(100*r[0]/r[1]):0; return '<div class="bar"><span>'+b+'</span><div><i style="width:'+p+'%"></i></div><span>'+(r[1]?p+'%':'—')+'</span></div>'}).join('');
+  var tp = Object.keys(topic).sort().map(function(t){var r = topic[t]; return '<tr><td>'+t+'</td><td>'+esc(T.topics[t]||'')+'</td><td>'+r[0]+'/'+r[1]+'</td><td>'+Math.round(100*r[0]/r[1])+'%</td></tr>'}).join('');
+  var hist = P.get('thist', []).slice().reverse().slice(0,15).map(function(x){return '<tr><td>'+x.d+'</td><td>'+esc(x.s)+'</td><td>'+x.ok+'/'+x.n+'</td></tr>'}).join('');
+  $('#ts-main').innerHTML = '<div class="panel bk"><h1>Мой профиль</h1><p class="meta">Учитывается последний ответ на каждый вопрос из пройденных вами.</p>'+bars+
+    (tp?'<h3>По темам</h3><div class="tw"><table><tr><th>Код</th><th>Тема</th><th>Верно</th><th>%</th></tr>'+tp+'</table></div>':'<p>Данных пока нет — пройдите хотя бы одну тему.</p>')+
+    (hist?'<h3>Последние попытки</h3><div class="tw"><table><tr><th>Когда</th><th>Что</th><th>Результат</th></tr>'+hist+'</table></div>':'')+
+    '<p class="noprint"><button id="reset-q">Сбросить результаты тестов</button></p></div>';
+  $('#reset-q').onclick = function(){ if (confirm('Удалить сохранённые результаты тестов в этом браузере?')){P.set('qres',{});P.set('thist',[]);renderProfile();refreshProg();} };
+}
+
+/* ---------- инструменты ---------- */
+BUILD.tools = function(){
+  var el = $('#tab-tools');
+  var rice = [['Показать требования рядом с полем',240,1,0.8,1],['Уточнить статусы на двух языках',180,1,0.8,1.5],['Упростить возврат к черновику',100,2,0.5,2]];
+  var pr = '';
+  for (var i=1;i<=14;i++) pr += '<label style="display:inline-block;width:130px;margin:2px 0">П'+i+' <input type="text" class="pp" data-i="'+i+'" style="width:56px" placeholder="0–8" inputmode="decimal"></label>';
+  el.innerHTML =
+  '<div class="note">Инструменты учебные: числа в них — ваши данные или условные данные из кейсов. Расчёт не заменяет описание знаменателя, окна наблюдения и ограничений вывода.</div>'+
+  '<div class="two">'+
+  '<div class="panel tool" id="t1"><h3>1. Доля и изменение в процентных пунктах</h3><p class="d">Доля успешных прохождений до и после изменения. Лекции № 1, 9; практика № 12.</p>'+
+   '<table><tr><th></th><th>Успешно</th><th>Начали (знаменатель)</th></tr><tr><td>До</td><td><input type="text" id="a1" value="28"></td><td><input type="text" id="b1" value="40"></td></tr><tr><td>После</td><td><input type="text" id="a2" value="34"></td><td><input type="text" id="b2" value="40"></td></tr></table><div class="out" id="o1"></div></div>'+
+  '<div class="panel tool" id="t4"><h3>2. Разность разностей</h3><p class="d">Группа с обновлением и группа сравнения; доли в процентах. Лекция № 9, практика № 12.</p>'+
+   '<table><tr><th></th><th>До, %</th><th>После, %</th></tr><tr><td>Обновление</td><td><input type="text" id="d1" value="60"></td><td><input type="text" id="d2" value="75"></td></tr><tr><td>Сравнение</td><td><input type="text" id="d3" value="62"></td><td><input type="text" id="d4" value="68"></td></tr></table><div class="out" id="o4"></div></div>'+
+  '</div>'+
+  '<div class="panel tool" id="t2"><h3>3. Сегменты и состав пользователей</h3><p class="d">Общая доля может расти из-за смены состава, хотя внутри сегментов ничего не изменилось. Числа — завершили / начали.</p>'+
+   '<div class="tw"><table id="seg"><tr><th>Сегмент</th><th>До: завершили</th><th>До: начали</th><th>После: завершили</th><th>После: начали</th></tr></table></div>'+
+   '<p class="noprint"><button class="sm" id="seg-add">+ сегмент</button> <button class="sm" id="seg-del">− сегмент</button></p><div class="out" id="o2"></div></div>'+
+  '<div class="panel tool" id="t3"><h3>4. Приоритизация RICE</h3><p class="d">RICE = R × I × C / E. R — охват, I — влияние (0,5; 1; 2), C — уверенность (0–1), E — трудоёмкость в человеко-месяцах. Практика № 13, лекция № 10.</p>'+
+   '<div class="tw"><table id="rice"><tr><th>Работа</th><th>R</th><th>I</th><th>C</th><th>E</th><th>Балл</th><th>Место</th></tr></table></div>'+
+   '<p class="noprint"><button class="sm" id="rice-add">+ строка</button> <button class="sm" id="rice-del">− строка</button></p><div class="out" id="o3">Изменяйте одно допущение за раз и смотрите, меняется ли порядок.</div></div>'+
+  '<div class="panel tool" id="t5"><h3>5. Баллы курса</h3><p class="d">Укажите баллы за каждую практику (рубрика 0–8) и остальные компоненты. Перевод по формулам ФОС: П1–П6 → 8 × сумма / 48, П7–П11 → 10 × сумма / 40, П12–П14 → 7 × сумма / 24.</p>'+
+   '<div>'+pr+'</div><table style="margin-top:10px"><tr><th>СРМ (до 15)</th><th>РК-1 (до 10)</th><th>РК-2 (до 10)</th><th>Экзамен (до 40)</th></tr><tr><td><input type="text" class="oc" id="c-s"></td><td><input type="text" class="oc" id="c-1"></td><td><input type="text" class="oc" id="c-2"></td><td><input type="text" class="oc" id="c-e"></td></tr></table><div class="out" id="o5"></div></div>';
+
+  function t1(){
+    var a1=num($('#a1').value),b1=num($('#b1').value),a2=num($('#a2').value),b2=num($('#b2').value);
+    var p1=b1?100*a1/b1:null, p2=b2?100*a2/b2:null;
+    $('#o1').innerHTML = 'До: <b>'+fmt(p1)+'%</b> · После: <b>'+fmt(p2)+'%</b> · Изменение: <b>'+(p1!==null&&p2!==null?(p2-p1>=0?'+':'')+fmt(p2-p1)+' п. п.':'—')+'</b><br><span style="color:var(--mut);font-size:13px">Различие двух периодов не доказывает причину: нужны сопоставимые условия и состав пользователей.</span>';
+  }
+  ['a1','b1','a2','b2'].forEach(function(id){$('#'+id).oninput=t1}); t1();
+
+  function t4(){
+    var v=['d1','d2','d3','d4'].map(function(i){return num($('#'+i).value)});
+    if (v.some(function(x){return x===null})){$('#o4').textContent='Заполните четыре значения.';return}
+    var du=v[1]-v[0], dc=v[3]-v[2];
+    $('#o4').innerHTML='Изменение в группе обновления: <b>'+(du>=0?'+':'')+fmt(du)+' п. п.</b> · в группе сравнения: <b>'+(dc>=0?'+':'')+fmt(dc)+' п. п.</b><br>Разность изменений: <b>'+(du-dc>=0?'+':'')+fmt(du-dc)+' п. п.</b><br><span style="color:var(--mut);font-size:13px">Для причинного вывода нужно обосновать, что без обновления обе группы менялись бы сходным образом.</span>';
+  }
+  ['d1','d2','d3','d4'].forEach(function(id){$('#'+id).oninput=t4}); t4();
+
+  var segs = [['Телефон',90,180,30,60],['Компьютер',18,20,126,140]];
+  function segRows(){
+    var t=$('#seg');
+    $$('tr.sr',t).forEach(function(r){r.remove()});
+    segs.forEach(function(s,i){
+      var tr=document.createElement('tr'); tr.className='sr';
+      tr.innerHTML='<td><input type="text" data-r="'+i+'" data-c="0" value="'+esc(s[0])+'"></td>'+[1,2,3,4].map(function(c){return '<td><input type="text" inputmode="decimal" data-r="'+i+'" data-c="'+c+'" value="'+s[c]+'"></td>'}).join('');
+      t.appendChild(tr);
+    });
+    $$('input',t).forEach(function(inp){inp.oninput=function(){segs[inp.dataset.r][inp.dataset.c]=inp.dataset.c==='0'?inp.value:inp.value;t2()}});
+    t2();
+  }
+  function t2(){
+    var N1=0,S1=0,N2=0,S2=0,rows='';
+    var data=segs.map(function(s){return {n:s[0],s1:num(s[1]),n1:num(s[2]),s2:num(s[3]),n2:num(s[4])}});
+    if (data.some(function(d){return d.s1===null||d.n1===null||d.s2===null||d.n2===null||!d.n1||!d.n2})){$('#o2').textContent='Заполните числа во всех сегментах (знаменатели больше нуля).';return}
+    data.forEach(function(d){N1+=d.n1;S1+=d.s1;N2+=d.n2;S2+=d.s2});
+    var std=0;
+    data.forEach(function(d){
+      var p1=100*d.s1/d.n1,p2=100*d.s2/d.n2; std += (d.n1/N1)*p2;
+      rows+='<tr><td>'+esc(d.n)+'</td><td>'+fmt(p1)+'% → '+fmt(p2)+'%</td><td>'+(p2-p1>=0?'+':'')+fmt(p2-p1)+' п. п.</td><td>доля в составе: '+fmt(100*d.n1/N1)+'% → '+fmt(100*d.n2/N2)+'%</td></tr>';
+    });
+    var P1=100*S1/N1,P2=100*S2/N2;
+    $('#o2').innerHTML='Общая доля: <b>'+fmt(P1)+'%</b> → <b>'+fmt(P2)+'%</b> ('+(P2-P1>=0?'+':'')+fmt(P2-P1)+' п. п.)<br>Итог «после» при составе пользователей «до»: <b>'+fmt(std)+'%</b> ('+(std-P1>=0?'+':'')+fmt(std-P1)+' п. п.)<div class="tw"><table><tr><th>Сегмент</th><th>Доля внутри сегмента</th><th>Изменение</th><th>Состав</th></tr>'+rows+'</table></div><span style="color:var(--mut);font-size:13px">Если изменение внутри сегментов мало, а общая доля выросла, причина может быть в смене состава.</span>';
+  }
+  $('#seg-add').onclick=function(){if(segs.length<5){segs.push(['Сегмент '+(segs.length+1),0,1,0,1]);segRows()}};
+  $('#seg-del').onclick=function(){if(segs.length>2){segs.pop();segRows()}};
+  segRows();
+
+  function riceRows(){
+    var t=$('#rice');
+    $$('tr.rr',t).forEach(function(r){r.remove()});
+    rice.forEach(function(r,i){
+      var tr=document.createElement('tr'); tr.className='rr';
+      tr.innerHTML='<td><input type="text" style="width:100%;min-width:180px" data-r="'+i+'" data-c="0" value="'+esc(r[0])+'"></td>'+[1,2,3,4].map(function(c){return '<td><input type="text" inputmode="decimal" style="width:64px" data-r="'+i+'" data-c="'+c+'" value="'+r[c]+'"></td>'}).join('')+'<td class="sc"></td><td class="rk"></td>';
+      t.appendChild(tr);
+    });
+    $$('input',t).forEach(function(inp){inp.oninput=function(){rice[inp.dataset.r][inp.dataset.c]=inp.value;t3()}});
+    t3();
+  }
+  function t3(){
+    var rows=$$('tr.rr',$('#rice')), sc=[];
+    rice.forEach(function(r,i){
+      var R=num(r[1]),I=num(r[2]),Cc=num(r[3]),E=num(r[4]);
+      var s=(R!==null&&I!==null&&Cc!==null&&E)?R*I*Cc/E:null; sc.push(s);
+      rows[i].querySelector('.sc').innerHTML='<b>'+fmt(s)+'</b>';
+    });
+    var order=sc.map(function(s,i){return i}).sort(function(a,b){return (sc[b]===null?-1:sc[b])-(sc[a]===null?-1:sc[a])});
+    order.forEach(function(i,pos){rows[i].querySelector('.rk').textContent=sc[i]===null?'—':(pos+1)});
+    var top=order[0];
+    $('#o3').innerHTML=sc[top]!==null?'Первым по баллу идёт: <b>'+esc(rice[top][0])+'</b> ('+fmt(sc[top])+'). Баллы задают порядок обсуждения, зависимость работ — порядок выполнения; условие выпуска стоит вне рейтинга.':'Заполните R, I, C и E (трудоёмкость больше нуля).';
+  }
+  $('#rice-add').onclick=function(){if(rice.length<8){rice.push(['Работа '+(rice.length+1),100,1,0.5,1]);riceRows()}};
+  $('#rice-del').onclick=function(){if(rice.length>2){rice.pop();riceRows()}};
+  riceRows();
+
+  function t5(){
+    var pp=$$('.pp').map(function(i){return num(i.value)||0});
+    var bad=pp.some(function(x){return x<0||x>8});
+    var s1=pp.slice(0,6).reduce(function(a,b){return a+b},0), s2=pp.slice(6,11).reduce(function(a,b){return a+b},0), s3=pp.slice(11).reduce(function(a,b){return a+b},0);
+    var tk=8*s1/48+10*s2/40+7*s3/24;
+    var oth=['c-s','c-1','c-2','c-e'].map(function(i){return num($('#'+i).value)||0});
+    var mx=[15,10,10,40], over=oth.some(function(x,i){return x<0||x>mx[i]});
+    var tot=tk+oth.reduce(function(a,b){return a+b},0);
+    $('#o5').innerHTML=(bad||over?'<span style="color:var(--bad)">Проверьте значения: практики — 0–8 баллов, СРМ — до 15, РК — до 10, экзамен — до 40.</span><br>':'')+
+      'Практики: П1–П6 <b>'+fmt(8*s1/48,2)+'</b>/8 · П7–П11 <b>'+fmt(10*s2/40,2)+'</b>/10 · П12–П14 <b>'+fmt(7*s3/24,2)+'</b>/7 → всего <b>'+fmt(tk,2)+'</b>/25<br>Сумма по курсу: <b>'+fmt(tot,1)+'</b> из 100 <span style="color:var(--mut);font-size:13px">(округление и шкалу отметок определяет положение вуза)</span>';
+  }
+  var saved=P.get('calc',{});
+  $$('.pp,.oc').forEach(function(i,idx){var k=i.dataset.i?'p'+i.dataset.i:i.id; if(saved[k]) i.value=saved[k]; i.oninput=function(){var s=P.get('calc',{}); s[k]=i.value; P.set('calc',s); t5()}});
+  t5();
+};
+
+/* ---------- портфолио ---------- */
+BUILD.report = function(){
+  var el = $('#tab-report');
+  var name = P.get('name','') || '________________', grp = P.get('group','') || '________';
+  var h = '<div class="panel rep"><div class="noprint" style="display:flex;gap:8px;flex-wrap:wrap;justify-content:space-between;align-items:center"><div><h2 style="margin:0;border:0;padding:0">Портфолио магистранта</h2><div style="color:var(--mut);font-size:14px">Собирается автоматически из бланков, заметок и результатов тестов</div></div><div><button class="pri" id="rp-print">Печать / PDF</button> <button id="rp-exp">Скачать мои данные</button> <button id="rp-imp">Загрузить данные</button><input type="file" id="rp-file" accept="application/json" hidden></div></div>'+
+   '<h1 style="font:600 24px Georgia,serif;margin:18px 0 2px">UX-менеджмент и цифровой опыт — портфолио</h1><p style="margin:0">Магистрант: <b>'+esc(name)+'</b> · группа: <b>'+esc(grp)+'</b> · дата: '+new Date().toLocaleDateString('ru-RU')+'</p>';
+  var any = false;
+  C.practicals.forEach(function(X){
+    var box = document.createElement('div'); box.innerHTML = X.html;
+    var chunks = '', seenRow = new Set(), seenP = new Set();
+    $$('.fill', box).forEach(function(f){
+      var v = P.get('fill:'+f.dataset.k,'');
+      if (!v) return;
+      var holder = f.closest('tr') || f.closest('p');
+      if (!holder) return;
+      if (holder.tagName === 'TR'){
+        if (seenRow.has(holder)) return; seenRow.add(holder);
+        var tbl = holder.closest('table'), head = tbl.querySelector('tr');
+        var row = holder.cloneNode(true), cls = $$('.fill', row);
+        $$('.fill', holder).forEach(function(ff, ix){
+          var vv = P.get('fill:'+ff.dataset.k,'');
+          var cl = cls[ix];
+          var sp = document.createElement('span'); sp.className='val'; sp.textContent = vv || '—';
+          cl.parentNode.replaceChild(sp, cl);
+        });
+        chunks += '<div class="tw"><table>'+head.outerHTML+row.outerHTML+'</table></div>';
+      } else {
+        if (seenP.has(holder)) return; seenP.add(holder);
+        var pc = holder.cloneNode(true), cls2 = $$('.fill', pc);
+        $$('.fill', holder).forEach(function(ff, ix){
+          var vv = P.get('fill:'+ff.dataset.k,'');
+          var cl = cls2[ix];
+          var sp = document.createElement('span'); sp.className='val'; sp.textContent = vv || '—';
+          cl.parentNode.replaceChild(sp, cl);
+        });
+        chunks += '<p>'+pc.innerHTML+'</p>';
+      }
+    });
+    var note = P.get('pr-note:'+X.n,'');
+    var done = P.get('pr-done:'+X.n);
+    if (chunks || note || done){
+      any = true;
+      h += '<h2>П'+X.n+'. '+esc(X.title)+(done?' · сдано':'')+'</h2>'+chunks+(note?'<p><b>Заметки:</b> '+esc(note).replace(/\n/g,'<br>')+'</p>':'');
+    }
+  });
+  var s = '', sk = P.keys().filter(function(k){return k.indexOf('fill:S:')===0});
+  if (sk.length){
+    var box2 = document.createElement('div'); box2.innerHTML = C.srm;
+    $$('.fill', box2).forEach(function(f){
+      var v = P.get('fill:'+f.dataset.k,''); if (!v) return;
+      var holder = f.closest('tr') || f.closest('p'); if (!holder) return;
+      s += '<p><span class="val">'+esc(v).replace(/\n/g,'<br>')+'</span></p>';
+    });
+    if (s){ any = true; h += '<h2>Самостоятельная работа · журнал решений</h2>'+s; }
+  }
+  var oa = P.keys().filter(function(k){return k.indexOf('oa:')===0 && P.get(k)});
+  if (oa.length){
+    any = true; h += '<h2>Открытые задания Б5 и Б6</h2>';
+    oa.sort().forEach(function(k){var o = T.open.filter(function(x){return 'oa:'+x.id === k})[0]; if (o) h += '<p><b>'+o.id+' ('+o.lvl+').</b> '+esc(o.q)+'<br><span class="val">'+esc(P.get(k)).replace(/\n/g,'<br>')+'</span></p>'});
+  }
+  var pg = progress();
+  h += '<h2>Сводка</h2><p>Лекций прочитано: '+pg.lr+' из 10. Практик сдано: '+pg.pd+' из 14. Тестов решено: '+pg.q+' из 240, верно: '+pg.qok+'.</p>';
+  if (!any) h += '<p class="note noprint">Пока записей нет. Заполните бланки на вкладке «Практические работы» — они появятся здесь.</p>';
+  h += '</div>';
+  el.innerHTML = h;
+  $('#rp-print').onclick = function(){window.print()};
+  $('#rp-exp').onclick = function(){
+    var blob = new Blob([JSON.stringify(P.dump(),null,1)], {type:'application/json'});
+    var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'ux-progress.json'; a.click();
+  };
+  $('#rp-imp').onclick = function(){$('#rp-file').click()};
+  $('#rp-file').onchange = function(){
+    var f = this.files[0]; if (!f) return;
+    var r = new FileReader(); r.onload = function(){ try { P.load(JSON.parse(r.result)); location.reload(); } catch(e){ alert('Не удалось прочитать файл'); } };
+    r.readAsText(f);
+  };
+};
+
+/* ---------- старт ---------- */
+refreshProg();
+var m = (location.hash||'').match(/^#([a-z]+)(?:-(\d+))?$/);
+showTab(m && TABS.indexOf(m[1])>=0 ? m[1] : 'home', m && m[2] ? parseInt(m[2],10) : undefined);
+window.addEventListener('hashchange', function(){
+  var m = (location.hash||'').match(/^#([a-z]+)(?:-(\d+))?$/);
+  if (m && TABS.indexOf(m[1])>=0) showTab(m[1], m[2] ? parseInt(m[2],10) : undefined);
+});
+})();
+</script>
+</body>
+</html>
